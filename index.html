@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gardens for the Future | Native &amp; Low-Water Landscape Design in San Diego</title>
+<meta name="description" content="Gardens for the Future is a San Diego landscape design studio specializing in California native plants, low-water gardens, edible landscapes, and pollinator-friendly design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,470;0,9..144,560;0,9..144,650;1,9..144,440&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Palette: sun-baked clay + chaparral olive + ochre bloom accent.
+       Distinct from generic "garden green" — leans dry-California hillside. */
+    --clay:        #b5502b;
+    --clay-dark:   #8f3d20;
+    --clay-ink:    #7a3419;
+    --olive:       #545a34;
+    --olive-dark:  #383d21;
+    --olive-deep:  #2a2e18;
+    --sage:        #9aa172;
+    --bloom:       #d98a2b;
+    --bloom-light: #f0b35a;
+    --paper:       #faf5ea;
+    --paper-warm:  #f2e8d5;
+    --paper-deep:  #e9dabd;
+    --ink:         #2b2717;
+    --ink-soft:    #5a5340;
+    --line:        #ddccA6;
+    --line-deep:   rgba(43, 39, 23, 0.14);
+    --radius-lg:   22px;
+    --radius-md:   16px;
+    --radius-sm:   10px;
+    --shadow-sm:   0 4px 14px -6px rgba(43, 39, 23, 0.22);
+    --shadow-md:   0 16px 40px -16px rgba(43, 39, 23, 0.35);
+    --shadow-lg:   0 28px 64px -20px rgba(43, 39, 23, 0.42);
+    --maxw: 1200px;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img, svg { max-width: 100%; display: block; }
+
+  a { color: inherit; }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 560;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5em;
+    color: var(--olive-deep);
+  }
+
+  p { margin: 0 0 1em; }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    background: var(--olive-deep);
+    color: var(--paper);
+    padding: 12px 18px;
+    border-radius: 0 0 10px 10px;
+    z-index: 200;
+    transition: top 0.25s var(--ease);
+    font-weight: 600;
+  }
+  .skip-link:focus { top: 0; }
+
+  :focus-visible {
+    outline: 3px solid var(--clay);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ---------- Texture: subtle grain overlay for the whole page ---------- */
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 245, 234, 0.88);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom: 1px solid var(--line-deep);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    gap: 16px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: var(--serif);
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.3rem);
+    font-weight: 650;
+    color: var(--olive-deep);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-mark { flex-shrink: 0; transition: transform 0.4s var(--ease); }
+  .brand:hover .brand-mark { transform: rotate(-8deg) scale(1.06); }
+
+  .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 10px 15px;
+    border-radius: 999px;
+    position: relative;
+    transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+  }
+
+  .main-nav a:hover {
+    background: var(--paper-warm);
+    color: var(--clay-ink);
+  }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--olive-deep);
+    color: var(--paper) !important;
+    font-weight: 700 !important;
+    padding: 10px 20px !important;
+    border-radius: 999px;
+    margin-left: 8px;
+    transition: background-color 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+  .nav-cta:hover { background: var(--clay); transform: translateY(-1px); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--olive);
+    border-radius: 10px;
+    padding: 8px 10px;
+    min-width: 44px;
+    min-height: 44px;
+    cursor: pointer;
+  }
+  .nav-toggle span,
+  .nav-toggle span::before,
+  .nav-toggle span::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--olive-deep);
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+  .nav-toggle span::before,
+  .nav-toggle span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+  .nav-toggle span::before { top: -7px; }
+  .nav-toggle span::after { top: 7px; }
+  .nav-toggle[aria-expanded="true"] span { background: transparent; }
+  .nav-toggle[aria-expanded="true"] span::before { transform: rotate(45deg); top: 0; }
+  .nav-toggle[aria-expanded="true"] span::after { transform: rotate(-45deg); top: 0; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(96px, 14vw, 168px) 24px clamp(88px, 12vw, 140px);
+    isolation: isolate;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 62%;
+  }
+
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(26, 24, 14, 0.72) 0%, rgba(30, 27, 15, 0.6) 38%, rgba(42, 34, 20, 0.88) 100%),
+      linear-gradient(115deg, rgba(20, 20, 10, 0.5) 0%, rgba(20, 20, 10, 0.08) 45%);
+  }
+
+  .hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--paper);
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 9px 20px;
+    border-radius: 999px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(6px);
+  }
+  .hero-eyebrow .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--bloom-light);
+    flex-shrink: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 2rem + 3.2vw, 4.6rem);
+    max-width: 17ch;
+    margin: 0 auto 22px;
+    color: #fff;
+    text-wrap: balance;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 440;
+    color: var(--bloom-light);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.05rem, 0.97rem + 0.5vw, 1.32rem);
+    color: rgba(255,255,255,0.92);
+    max-width: 48ch;
+    margin: 0 auto 40px;
+    text-wrap: balance;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .hero-trust {
+    margin: 28px 0 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: rgba(255,255,255,0.82);
+  }
+  .hero-trust svg { color: var(--bloom-light); flex-shrink: 0; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+    min-height: 44px;
+  }
+  .btn:active { transform: translateY(0) scale(0.98); }
+
+  .btn-primary {
+    background: var(--bloom);
+    color: #241a08;
+    box-shadow: 0 10px 26px -10px rgba(217, 138, 43, 0.7);
+  }
+  .btn-primary:hover {
+    background: var(--bloom-light);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -10px rgba(217, 138, 43, 0.65);
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.55);
+    color: #fff;
+    backdrop-filter: blur(6px);
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.92);
+    color: var(--olive-deep);
+    border-color: rgba(255,255,255,0.92);
+    transform: translateY(-2px);
+  }
+
+  .btn-dark {
+    background: var(--olive-deep);
+    color: var(--paper);
+  }
+  .btn-dark:hover {
+    background: var(--clay-ink);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border-color: var(--olive);
+    color: var(--olive-deep);
+  }
+  .btn-outline:hover {
+    background: var(--olive-deep);
+    border-color: var(--olive-deep);
+    color: var(--paper);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .hero-scroll-cue svg { animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ---------- Section basics ---------- */
+  section { padding: clamp(72px, 9vw, 112px) 0; }
+
+  .section-head {
+    max-width: 640px;
+    margin: 0 auto 56px;
+    text-align: center;
+  }
+  .section-head.align-left { margin-left: 0; text-align: left; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--clay);
+    margin-bottom: 14px;
+  }
+  .section-eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1.5px;
+    background: var(--clay);
+  }
+
+  .section-head h2 { font-size: clamp(1.9rem, 1.6rem + 1.6vw, 2.75rem); }
+  .section-head p { color: var(--ink-soft); font-size: 1.08rem; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.08s; }
+  .reveal-delay-2 { transition-delay: 0.16s; }
+  .reveal-delay-3 { transition-delay: 0.24s; }
+
+  /* ---------- About ---------- */
+  .about {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (min-width: 880px) {
+    .about-grid { grid-template-columns: 0.92fr 1.08fr; gap: 72px; }
+  }
+
+  .about-art {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .about-art img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+  }
+  .about-art:hover img { transform: scale(1.04); }
+
+  .about-art-badge {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    background: rgba(250, 245, 234, 0.94);
+    backdrop-filter: blur(8px);
+    color: var(--olive-deep);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+    z-index: 2;
+    max-width: calc(100% - 40px);
+  }
+
+  .about-copy h2 { font-size: clamp(1.9rem, 1.6rem + 1.4vw, 2.6rem); }
+  .about-copy p { color: var(--ink-soft); font-size: 1.08rem; }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .about-tags span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--olive-deep);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 9px 17px;
+    border-radius: 999px;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+  .about-tags span:hover {
+    background: var(--olive-deep);
+    color: var(--paper);
+    border-color: var(--olive-deep);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery { background: var(--paper); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 200px;
+    gap: 18px;
+  }
+
+  .gallery-item {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    grid-column: span 6;
+    grid-row: span 2;
+    transition: box-shadow 0.35s var(--ease);
+  }
+  .gallery-item:hover { box-shadow: var(--shadow-md); }
+
+  @media (min-width: 640px) {
+    .gallery-item { grid-column: span 3; }
+    .gallery-item.g-wide { grid-column: span 4; }
+    .gallery-item.g-narrow { grid-column: span 2; }
+  }
+
+  @media (min-width: 980px) {
+    .gallery-item { grid-column: span 2; grid-row: span 2; }
+    .gallery-item.g-wide { grid-column: span 3; }
+    .gallery-item.g-tall { grid-row: span 3; }
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease);
+  }
+
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  .gallery-item figcaption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 14px 16px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(0deg, rgba(20,18,10,0.82) 0%, rgba(20,18,10,0) 100%);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .gallery-item:hover figcaption,
+  .gallery-item:focus-within figcaption { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-item:hover img,
+    .about-art:hover img { transform: none; }
+    .gallery-item figcaption { opacity: 1; transform: none; background: linear-gradient(0deg, rgba(20,18,10,0.72) 0%, rgba(20,18,10,0) 100%); }
+  }
+
+  /* ---------- Services ---------- */
+  .services { background: var(--paper-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 22px;
+  }
+
+  .service-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+    position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--sage);
+  }
+
+  .service-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: linear-gradient(140deg, var(--paper-deep), var(--paper-warm));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+  }
+  .service-card:hover .service-icon {
+    transform: rotate(-6deg) scale(1.06);
+    background: linear-gradient(140deg, var(--bloom-light), var(--bloom));
+  }
+  .service-icon svg { width: 26px; height: 26px; }
+
+  .service-card h3 {
+    font-size: 1.18rem;
+    margin-bottom: 8px;
+    color: var(--olive-deep);
+  }
+
+  .service-card p {
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+    margin: 0;
+  }
+
+  /* ---------- Highlights strip ---------- */
+  .highlights {
+    background: linear-gradient(125deg, var(--olive-deep) 0%, var(--olive) 55%, #4a4f2c 100%);
+    color: var(--paper);
+    padding: clamp(56px, 8vw, 80px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlights::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 12% 20%, rgba(217,138,43,0.16), transparent 40%), radial-gradient(circle at 88% 78%, rgba(217,138,43,0.12), transparent 45%);
+    pointer-events: none;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .highlight-item h3 {
+    font-family: var(--serif);
+    color: #fff;
+    font-size: clamp(1.7rem, 1.4rem + 1vw, 2.2rem);
+    margin-bottom: 6px;
+  }
+
+  .highlight-item p {
+    color: rgba(250, 245, 234, 0.78);
+    font-size: 0.92rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .highlight-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--bloom-light);
+    margin: 0 auto 18px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq { background: var(--paper); }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq-item {
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .faq-item:hover { border-color: var(--sage); }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: var(--serif);
+    font-weight: 560;
+    font-size: 1.08rem;
+    color: var(--olive-deep);
+    padding: 22px 26px;
+    cursor: pointer;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.3s var(--ease), background 0.3s ease;
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: "";
+    position: absolute;
+    background: var(--clay);
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+  .faq-icon::before { width: 12px; height: 2px; }
+  .faq-icon::after { width: 2px; height: 12px; }
+
+  .faq-item[data-open="true"] .faq-icon { background: var(--clay); border-color: var(--clay); }
+  .faq-item[data-open="true"] .faq-icon::before,
+  .faq-item[data-open="true"] .faq-icon::after { background: #fff; }
+  .faq-item[data-open="true"] .faq-icon::after { opacity: 0; }
+
+  .faq-answer-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s var(--ease);
+  }
+  .faq-item[data-open="true"] .faq-answer-wrap {
+    grid-template-rows: 1fr;
+  }
+  .faq-answer-inner { overflow: hidden; }
+  .faq-answer {
+    padding: 0 26px 24px;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    max-width: 62ch;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-answer-wrap { transition: none; }
+  }
+
+  /* ---------- Visit ---------- */
+  .visit {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--line);
+  }
+
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 880px) {
+    .visit-grid { grid-template-columns: 1.05fr 0.95fr; gap: 56px; }
+  }
+
+  .visit-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: clamp(32px, 4vw, 44px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .visit-card h3 { font-size: 1.4rem; margin-bottom: 22px; }
+
+  .visit-list {
+    list-style: none;
+    margin: 0 0 30px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .visit-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    font-size: 1rem;
+    color: var(--ink-soft);
+  }
+
+  .visit-list .ico {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--paper-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .visit-list .ico svg { width: 20px; height: 20px; }
+
+  .visit-list strong {
+    display: block;
+    color: var(--olive-deep);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .visit-map {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    min-height: 340px;
+    box-shadow: var(--shadow-md);
+    background:
+      radial-gradient(circle at 25% 25%, rgba(217,138,43,0.22), transparent 45%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 16px),
+      linear-gradient(160deg, var(--sage), var(--olive-deep));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .visit-map-inner {
+    position: relative;
+    z-index: 2;
+    color: var(--paper);
+  }
+
+  .visit-map-inner svg { width: 54px; height: 54px; margin: 0 auto 18px; }
+
+  .visit-map-inner p {
+    color: rgba(250,245,234,0.88);
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+  }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--paper);
+    color: var(--olive-deep);
+    font-weight: 700;
+    padding: 13px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background-color 0.25s var(--ease);
+  }
+  .map-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px -10px rgba(0,0,0,0.5);
+    background: var(--bloom-light);
+  }
+
+  .hours-note {
+    margin-top: 20px;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    background: var(--paper-deep);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .hours-note svg { flex-shrink: 0; margin-top: 2px; }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    background: var(--olive-deep);
+    color: rgba(250, 245, 234, 0.85);
+    padding: 56px 0 32px;
+  }
+
+  .footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(250, 245, 234, 0.15);
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-tagline {
+    max-width: 34ch;
+    font-size: 0.92rem;
+    color: rgba(250, 245, 234, 0.65);
+    margin-top: 10px;
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav a {
+    text-decoration: none;
+    color: rgba(250, 245, 234, 0.78);
+    font-size: 0.92rem;
+    transition: color 0.2s ease;
+  }
+  .footer-nav a:hover { color: var(--bloom-light); }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    padding-top: 24px;
+    font-size: 0.82rem;
+    color: rgba(250, 245, 234, 0.55);
+  }
+
+  /* ---------- Responsive nav ---------- */
+  @media (max-width: 860px) {
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    .main-nav {
+      position: fixed;
+      inset: 72px 16px auto 16px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      padding: 12px;
+      transform: translateY(-12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+    .main-nav.is-open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .main-nav ul { flex-direction: column; }
+    .main-nav a { display: block; padding: 13px 16px; }
+    .nav-cta { margin-left: 0; margin-top: 4px; text-align: center; justify-content: center; }
+    section { padding: 64px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+    .hero-scroll-cue svg { animation: none; }
+  }
+</style>
+      <!-- SEO:START (generated by _seo_inject.js) -->
+    <link rel="canonical" href="https://fansist.github.io/gardens-for-the-future/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gardens for the Future" />
+    <meta property="og:title" content="Gardens for the Future: Native Landscape Design SD" />
+    <meta property="og:description" content="California native, low-water and edible garden design and installation for San Diego yards." />
+    <meta property="og:url" content="https://fansist.github.io/gardens-for-the-future/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://fansist.github.io/gardens-for-the-future/photos/photo1.webp" />
+    <meta property="og:image:alt" content="Front yard native/low-water landscape install: river rock and gravel mulch beds, drought-tolerant shrubs, and boulders along a residential driveway (mirrored fr" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gardens for the Future: Native Landscape Design SD" />
+    <meta name="twitter:description" content="California native, low-water and edible garden design and installation for San Diego yards." />
+    <meta name="twitter:image" content="https://fansist.github.io/gardens-for-the-future/photos/photo1.webp" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Gardens for the Future","url":"https://fansist.github.io/gardens-for-the-future/","image":["https://fansist.github.io/gardens-for-the-future/photos/photo1.webp"],"address":{"@type":"PostalAddress","addressLocality":"San Diego","addressRegion":"CA","addressCountry":"US"},"description":"Native and drought-tolerant landscape design, turf removal, and pollinator gardens","areaServed":{"@type":"City","name":"San Diego"}}</script>
+    <!-- SEO:END -->
+  </head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" fill="#545a34"/>
+        <path d="M16 23c-4.2-2.1-6.3-6.3-6.3-10.5 4.2 0 8.4 2.1 9.5 6.3 1.1-4.2 5.3-6.3 9.5-6.3 0 4.2-2.1 8.4-6.3 10.5-2.1 1.1-4.2 1.1-6.4 0z" fill="#f0b35a"/>
+      </svg>
+      Gardens for the Future
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+      <span class="visually-hidden">Toggle menu</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="main-nav" id="primaryNav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a class="nav-cta" href="https://www.google.com/maps/search/?api=1&query=Gardens%20for%20the%20Future%2C%20San%20Diego%2C%20CA">Get Directions</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero-photo" aria-hidden="true">
+      <img src="photos/photo1.webp" alt="" fetchpriority="high">
+    </div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>Landscape Design &middot; San Diego</span>
+      <h1>Gardens built for <em>this</em> land, this water, this future</h1>
+      <p class="hero-tagline">Native and drought-tolerant landscape design, turf removal, and pollinator gardens, a boutique studio rooted in California native plants and permaculture practice.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Gardens%20for%20the%20Future%2C%20San%20Diego%2C%20CA">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+          Find Us on the Map
+        </a>
+        <a class="btn btn-secondary" href="#services">Explore Services</a>
+      </div>
+      <p class="hero-trust">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5 14.9 8.6l6.7 1-4.8 4.7 1.1 6.7L12 17.9l-6 3.1 1.1-6.7-4.8-4.7 6.7-1L12 2.5Z"/></svg>
+        28 Yelp reviews &middot; San Diego native &amp; low-water specialists
+      </p>
+    </div>
+    <a class="hero-scroll-cue" href="#about" aria-label="Scroll to About section">
+      Scroll
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v16m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-art reveal">
+        <img src="photos/photo5.webp" alt="Shaded backyard native landscape bed with a river-rock ring around a mature pine tree trunk and low-water groundcover planted beneath the canopy, a Gardens for the Future project" decoding="async">
+        <span class="about-art-badge">Real client project &middot; San Diego</span>
+      </div>
+      <div class="about-copy reveal">
+        <span class="section-eyebrow">About the Studio</span>
+        <h2>Design that works with San Diego&rsquo;s climate, not against it</h2>
+        <p>Gardens for the Future specializes in native and drought-tolerant landscape design, turf removal, and pollinator gardens. The approach is boutique and eco-conscious, a permaculture-minded designer&rsquo;s brand, earthy and expert, built around sustainability rather than the scale of a large commercial landscaping outfit.</p>
+        <p>Every project centers California native and low-water plantings, from full landscape overhauls to edible garden beds, with an emphasis on long-term stewardship over one-time installs.</p>
+        <div class="about-tags">
+          <span>Native Plants</span>
+          <span>Low-Water Design</span>
+          <span>Pollinator Gardens</span>
+          <span>Edible Landscapes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Recent Work</span>
+        <h2>Gardens taking root around San Diego</h2>
+        <p>A few glimpses of native beds, pollinator borders, and low-water plantings from real client landscapes.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item g-wide reveal">
+          <img src="photos/photo1.webp" alt="Front yard native and low-water landscape with river rock and gravel mulch beds, drought-tolerant shrubs, and boulders along a residential driveway" decoding="async">
+          <figcaption>Front yard native &amp; low-water bed</figcaption>
+        </figure>
+        <figure class="gallery-item reveal reveal-delay-1">
+          <img src="photos/photo2.webp" alt="Backyard pollinator garden bed of blooming orange California poppies along a wood fence line, next to a lawn" decoding="async">
+          <figcaption>Backyard poppy pollinator bed</figcaption>
+        </figure>
+        <figure class="gallery-item g-tall reveal reveal-delay-2">
+          <img src="photos/photo3.webp" alt="Front yard river-rock dry creek bed with drought-tolerant plantings, a small wood footbridge, and a brick paver border along a driveway" decoding="async">
+          <figcaption>River-rock dry creek design</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="photos/photo4.webp" alt="Backyard cottage-style pollinator border with pink and white wildflowers between a wood fence and lawn, potted citrus trees visible in the background" decoding="async">
+          <figcaption>Cottage-style pollinator border</figcaption>
+        </figure>
+        <figure class="gallery-item g-wide reveal reveal-delay-1">
+          <img src="photos/photo5.webp" alt="Shaded backyard native landscape bed with a river-rock ring around a mature pine tree trunk and low-water groundcover beneath the canopy" decoding="async">
+          <figcaption>Shaded native groundcover bed</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">What We Do</span>
+        <h2>Services rooted in sustainable design</h2>
+        <p>From first consultation to ongoing care, every service is built around water-wise, native-forward landscaping.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20h16M6 20V10l6-6 6 6v10" stroke="#8f3d20" stroke-width="1.7" stroke-linejoin="round"/><path d="M10 20v-6h4v6" stroke="#8f3d20" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <h3>Landscape Design Consultation</h3>
+          <p>Start with a thoughtful, on-site consultation to map out a plan suited to your space, sun, and soil.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-3 3-3 7 0 10 3-3 3-7 0-10Z" stroke="#545a34" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 13v8M8 21h8" stroke="#545a34" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>California Native &amp; Low-Water Design</h3>
+          <p>Climate-appropriate planting plans built around native species and minimal irrigation needs.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="#b5502b" stroke-width="1.7"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="#b5502b" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>Edible &amp; Food Garden Design</h3>
+          <p>Productive, beautiful food-growing spaces designed to fit into a native landscape plan.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 21h16M6 21V9l6-5 6 5v12" stroke="#545a34" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <h3>Landscape Installation</h3>
+          <p>Full implementation of your design, plantings, hardscape touches, and turf removal handled start to finish.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21c-5-2.5-8-7-8-12A8 8 0 0 1 12 3a8 8 0 0 1 8 6c0 5-3 9.5-8 12Z" stroke="#9aa172" stroke-width="1.7"/></svg></div>
+          <h3>Ongoing Garden Maintenance</h3>
+          <p>Seasonal care and upkeep to keep native and edible gardens thriving year-round.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v7m0 0-4 8m4-8 4 8" stroke="#8f3d20" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Fruit Tree Pruning</h3>
+          <p>Expert pruning to keep fruit trees healthy, productive, and well-shaped.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h10a4 4 0 0 0 0-8" stroke="#545a34" stroke-width="1.7" stroke-linecap="round"/><path d="M20 12H10a4 4 0 0 0 0 8" stroke="#545a34" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>Irrigation Repair &amp; Adjustment</h3>
+          <p>Fine-tuning and repair of irrigation systems to support efficient, low-water landscapes.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="highlights" id="highlights">
+    <div class="wrap">
+      <div class="highlights-grid">
+        <div class="highlight-item reveal">
+          <div class="highlight-divider"></div>
+          <h3>San Diego</h3>
+          <p>Locally Based</p>
+        </div>
+        <div class="highlight-item reveal reveal-delay-1">
+          <div class="highlight-divider"></div>
+          <h3>28</h3>
+          <p>Yelp Reviews</p>
+        </div>
+        <div class="highlight-item reveal reveal-delay-2">
+          <div class="highlight-divider"></div>
+          <h3>Native</h3>
+          <p>&amp; Low-Water Focus</p>
+        </div>
+        <div class="highlight-item reveal reveal-delay-3">
+          <div class="highlight-divider"></div>
+          <h3>Boutique</h3>
+          <p>Permaculture-Minded Studio</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Common Questions</span>
+        <h2>Frequently asked questions</h2>
+        <p>A few honest answers about how native and low-water landscape design typically works.</p>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item reveal" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            Do I need to replace my whole yard to go native or low-water?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p class="faq-answer">Not necessarily. Many projects start small, converting a section of turf, adding a pollinator border, or replacing a few water-hungry beds, and expand over time. A consultation can help identify which areas make the most sense to start with based on your space and goals.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item reveal" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            What is the difference between a native garden and a drought-tolerant garden?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p class="faq-answer">Native plants are species that occur naturally in the region, which generally makes them well-adapted to local rainfall, soil, and wildlife. Drought-tolerant plants can include natives and non-natives selected for their low water needs. A design can blend both approaches depending on the look and function you want.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item reveal" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            Can a low-water landscape still support pollinators and edible plants?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p class="faq-answer">Yes, that combination is a core part of this studio&rsquo;s approach. Many California native plants are important food and habitat sources for pollinators, and edible garden beds can be designed to fit alongside low-water plantings rather than requiring a separate high-water zone.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item reveal" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            Does turf removal require a permit or rebate application?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p class="faq-answer">It depends on your property, water provider, and the scope of the project. Some turf replacement programs in the San Diego area offer rebates with specific requirements. It&rsquo;s worth asking during a consultation whether your project may qualify and what documentation would be needed.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item reveal" data-open="false">
+          <button class="faq-question" aria-expanded="false">
+            How do I get a quote or schedule a consultation?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p class="faq-answer">The best next step is to reach out directly to discuss your space, goals, and timeline. From there, an on-site visit can help determine scope and next steps for design or installation.</p>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap visit-grid">
+      <div class="visit-card reveal">
+        <h3>Plan Your Visit</h3>
+        <ul class="visit-list">
+          <li>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13Z" stroke="#8f3d20" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" stroke="#8f3d20" stroke-width="1.8"/></svg></span>
+            <span><strong>Service Area</strong>San Diego, CA</span>
+          </li>
+          <li>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="#8f3d20" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span><strong>Category</strong>Landscape Design / Gardening (native &amp; low-water)</span>
+          </li>
+          <li>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3" stroke="#8f3d20" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#8f3d20" stroke-width="1.8"/></svg></span>
+            <span><strong>Hours</strong>Contact for current availability and scheduling</span>
+          </li>
+        </ul>
+        <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Gardens%20for%20the%20Future%2C%20San%20Diego%2C%20CA">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+          Get Directions
+        </a>
+        <p class="hours-note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#5a5340" stroke-width="1.6"/><path d="M12 8v4.5l3 2" stroke="#5a5340" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Gardens for the Future is a registered San Diego sole-proprietorship with a credible Yelp listing and multiple local directory listings. Reach out directly to confirm current hours and availability.</span>
+        </p>
+      </div>
+      <div class="visit-map reveal">
+        <div class="visit-map-inner">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-7.58 7-13a7 7 0 1 0-14 0c0 5.42 7 13 7 13Z" stroke="#faf5ea" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" stroke="#faf5ea" stroke-width="1.6"/></svg>
+          <p>Serving San Diego, CA, view the exact location and get turn-by-turn directions on Google Maps.</p>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Gardens%20for%20the%20Future%2C%20San%20Diego%2C%20CA">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" fill="#faf5ea"/>
+            <path d="M16 23c-4.2-2.1-6.3-6.3-6.3-10.5 4.2 0 8.4 2.1 9.5 6.3 1.1-4.2 5.3-6.3 9.5-6.3 0 4.2-2.1 8.4-6.3 10.5-2.1 1.1-4.2 1.1-6.4 0z" fill="#383d21"/>
+          </svg>
+          Gardens for the Future
+        </div>
+        <p class="footer-tagline">Native and drought-tolerant landscape design, turf removal, and pollinator gardens in San Diego.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Gardens for the Future &middot; San Diego, CA</span>
+      <span>Landscape Design &amp; Native Gardening</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('primaryNav');
+
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var btn = item.querySelector('.faq-question');
+      btn.addEventListener('click', function () {
+        var isOpen = item.getAttribute('data-open') === 'true';
+        document.querySelectorAll('.faq-item').forEach(function (other) {
+          other.setAttribute('data-open', 'false');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.setAttribute('data-open', 'true');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* Scroll reveal */
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        observer.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
